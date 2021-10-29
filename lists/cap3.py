@@ -250,11 +250,12 @@ def main():
     # lista.append(3)
     # lista += [4,5,6]
 
-    lista = [5,3,4,5,10]
+    lista = [5, 3, 4, 5, 10]
     # print(lista.count(5))
     # lista.remove(5)  # removes the first occurence of the value 5
 
-    lista.insert(2, -100)  # adauga pe pozitia 2 elementul -100, iar toate elementele (icnepand cu pozitia 2) se muta mai la dreapta
+    lista.insert(2,
+                 -100)  # adauga pe pozitia 2 elementul -100, iar toate elementele (icnepand cu pozitia 2) se muta mai la dreapta
     print(lista)
 
 
@@ -263,33 +264,37 @@ def main():
 
 def main():
     nums = read_float_list()
-    n = len(nums) # for(i = 0; i <
+    n = len(nums)  # for(i = 0; i <
     i = 0
     while i < n:
         if nums[i] < 0:
-            nums.insert(i,0)
+            nums.insert(i, 0)
             i += 1
             n += 1
         i += 1
     print(nums)
+
+
 # if __name__ == '__main__':
 #     main()
 
-#19
+# 19
 def main():
     nums = read_int_list()
     n = len(nums)
     cnt = 0
     for i in range(n):
         for j in range(n):
-            if nums[i] > nums[j] and i < j :
+            if nums[i] > nums[j] and i < j:
                 cnt += 1
-                print(nums[i],nums[j])
+                print(nums[i], nums[j])
     print(cnt)
+
+
 # if __name__ == '__main__':
 #      main()
 
-#21
+# 21
 def main():
     nums = read_int_list()
     n = len(nums)
@@ -297,11 +302,13 @@ def main():
     # a,b = 2,3
     # a,b = b,a
     for i in range(n):
-        for j in range(i+1,n):
+        for j in range(i + 1, n):
             if nums[i] % 2 == 0 and nums[j] % 2 == 0:
                 if nums[i] > nums[j]:
                     nums[i], nums[j] = nums[j], nums[i]
     print(nums)
+
+
 # if __name__ == '__main__':
 #     main()
 
@@ -315,13 +322,13 @@ def main():
     n = len(nums)
 
     i = 0
-    j = n-1
+    j = n - 1
     while i < len(nums) // 2:
+        print(round(floor(nums[i]) + nums[j] - floor(nums[j]), 3))
 
-        print(round(floor(nums[i]) + nums[j]-floor(nums[j]), 3))
+        i += 1
+        j -= 1
 
-        i+=1
-        j-=1
 
 # if __name__ == '__main__':
 #     main()
@@ -335,6 +342,8 @@ ACBEzlE
     s = input()
     for i in range(len(s)):
         print(s[i], f'Ascii={ord(s[i])}')  # ord('c') este codul ascii al lui 'c'
+
+
 # if __name__ == '__main__':
 #     main()
 
@@ -347,7 +356,7 @@ def main():
     n = len(nums)
     min = 0
     max = 0
-    i_min = -1 # initializezi cu o pozitie care nu exista
+    i_min = -1  # initializezi cu o pozitie care nu exista
     i_max = -1
 
     for i in range(n):
@@ -361,10 +370,10 @@ def main():
     # slices
     # sortam elementele de la i_min pana la i_max
     #  face o lista cu ele sortate si le atribuie pas cu pas in pozitiile din lista
-    nums[i_min:i_max+1] = sorted(nums[i_min:i_max+1])
-
+    nums[i_min:i_max + 1] = sorted(nums[i_min:i_max + 1])
 
     print(nums, nums[2:4])
+
 
 # if __name__ == '__main__':
 #     main()
@@ -377,11 +386,11 @@ def main():
     # a,b = 3, 10
     # print(a,b)
 
-    l = [1,2,3]
+    l = [1, 2, 3]
 
     l[0] = 4
     print(l)
-    l[:] = 2,3,4
+    l[:] = 2, 3, 4
     print(l)
 
     l[:2] = 'a', 'b'
@@ -389,10 +398,179 @@ def main():
     l[2:] = 'C'
     print(l)
 
-    l = [1,2,3,'a', 'b', 'c']
+    l = [1, 2, 3, 'a', 'b', 'c']
     print(l[1:5])
 
 
 # if __name__ == '__main__':
 #     main()
 
+def main():
+    '''
+14 -13 21 1 120 1000 21
+    :return:
+    '''
+    nums = read_int_list()
+    n = len(nums)
+    min = 0
+    max = 0
+    i_min = -1  # initializezi cu o pozitie care nu exista
+    i_max = -1
+
+    for i in range(n):
+        if nums[i] < min:
+            min = nums[i]
+            i_min = i
+        if nums[i] > max:
+            max = nums[i]
+            i_max = i
+
+    # slices
+    # sortam elementele de la i_min pana la i_max
+    #  face o lista cu ele sortate si le atribuie pas cu pas in pozitiile din lista
+    nums[i_min:i_max + 1] = sorted(nums[i_min:i_max + 1])
+
+    print(nums, nums[2:4])
+
+
+# if __name__ == '__main__':
+#     main()
+
+# TODO about list slices:
+def main():
+    # a = 2
+    # b = 3
+    # print(a,b)
+    # a,b = 3, 10
+    # print(a,b)
+
+    l = [1, 2, 3]
+
+    l[0] = 4
+    print(l)
+    l[:] = 2, 3, 4
+    print(l)
+
+    l[:2] = 'a', 'b'
+    print(l)
+    l[2:] = 'C'
+    print(l)
+
+    l = [1, 2, 3, 'a', 'b', 'c']
+    print(l[1:5])
+
+
+# if __name__ == '__main__':
+#     main()
+
+# 27
+
+'''
+2 3 2 2     => verificam prima data lungimea
+2 3
+2 3 3     => e mai usor sa comparam doua liste deja sortate
+2 3 2     e usor sa compari [2,3,3] cu [2,2,3]
+'''
+
+
+def equals(l1, l2):
+    l1 = sorted(l1)  # Command+D  to copy the line below (duplicate)
+    l2 = sorted(l2)  # Command+D  to copy the line below (duplicate)
+    if len(l1) != len(l2):
+        return False
+    for i in range(len(l1)):
+        if l1[i] != l2[i]:
+            return False
+    return True
+
+
+def main():
+    '''
+2 4 1
+3 4 8 4 2 1 9
+
+    '''
+    a = read_int_list()
+    b = read_int_list()
+    for i in range(len(b) - len(a) + 1):
+        if equals(a, b[i:i + len(a)]):
+            print(i + 1)
+        # print(i+1, b[i:i + len(a)])
+
+
+# if __name__ == '__main__':
+#     main()
+
+# # TODO printing a list using *l
+# def main():
+#     l = [1, 2, 3]
+#     print(l)
+#     print(*l)  # desface lista in componente  => print(l[0], l[1], l[2])
+#     print(*l, sep=',')  # desface lista in componente  => print(l[0], l[1], l[2])
+#     a = [[1,2],[2,3]]
+#     print(*a, sep='\n')
+#
+# if __name__ == '__main__':
+#     main()
+
+# TODO What are lsit comprehensions
+# def main():
+#     # list comprehensions
+#     l = [1,2,3]
+#     l_patrat = [item**2 for item in l]
+#     print(l_patrat)
+#     l_indici = [i for i in range(10)]
+#     print(l_indici)
+#     l_indici = [0 for i in range(10)]  # vector de frecventa
+#     print(l_indici)
+#
+# if __name__ == '__main__':
+#     main()
+
+# 32
+def compute_first_digit(n):
+    # 1234
+    while n > 9:
+        n = n // 10
+    return n
+
+def main():
+    '''
+334 124 21 34 122 1 39
+
+    '''
+    a = read_int_list()
+    # grouped = [[]] * 10  # [2] + [2] + [2]..[2] = [2,2,2,...]
+    grouped = [[] for i in range(10)]  # lista cu 10 liste goale
+    # print(grouped)
+    # grouped[0].append(2)
+    # print(grouped)
+
+    for item in a:
+        # compute first digit:
+        first_digit = compute_first_digit(item)
+        grouped[first_digit].append(item)
+    # print(*grouped, sep = '\n')
+    for line in grouped:
+        if len(line) != 0:
+            print(*line)
+
+# if __name__ == '__main__':
+#     main()
+    # TODO 10, 12, 14, 15, 16, 22 (poti citi sir de caractere direct cu input), 18
+    # TODO tema: 33 poti verifica cum gaseam nr. de cifre distince
+
+# Task 3 from assigments
+# import random
+# to_guess = random.randint(1,100)
+# # print(to_guess)
+# while True:
+#     guessed = int(input("Guess: "))
+#     # print whether the number the user guessed is lower or higher compared to the
+#     #  one that has to be guessed
+#     if guessed == to_guess:
+#         pass # congrats
+#     elif guessed < to_guess:
+#         print("You are looking for a greater number")
+#     else:
+#         pass
