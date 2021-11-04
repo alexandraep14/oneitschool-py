@@ -534,6 +534,7 @@ def compute_first_digit(n):
         n = n // 10
     return n
 
+
 def main():
     '''
 334 124 21 34 122 1 39
@@ -555,10 +556,11 @@ def main():
         if len(line) != 0:
             print(*line)
 
+
 # if __name__ == '__main__':
 #     main()
-    # TODO 10, 12, 14, 15, 16, 22 (poti citi sir de caractere direct cu input), 18
-    # TODO tema: 33 poti verifica cum gaseam nr. de cifre distince
+# TODO 10, 12, 14, 15, 16, 22 (poti citi sir de caractere direct cu input), 18
+# TODO tema: 33 poti verifica cum gaseam nr. de cifre distince
 
 # Task 3 from assigments
 # import random
@@ -574,3 +576,117 @@ def main():
 #         print("You are looking for a greater number")
 #     else:
 #         pass
+
+# 10
+def main():
+    x = read_int_list()
+    n = len(x)
+    for i in reversed(range(n)):
+        print(x[i])
+
+
+# if __name__ == '__main__':
+#     main()
+
+# 12
+def main():
+    lista = read_int_list()
+    n = len(lista)
+    max = 0
+    cnt = 0
+    for i in range(n):
+        if i == [i + 1]:
+            cnt += 1
+            if cnt > max:
+                max = cnt
+
+    print(cnt, max)
+
+
+# if __name__ == '__main__':
+#     main()
+# 14??
+def main():
+    lista = read_int_list()
+
+    for i in range(len(lista)):
+        if lista[i] > 0 and lista[i] != lista[i + 1]:
+            print(lista[i])
+
+
+# if __name__ == '__main__':
+#     main()
+
+# 15
+def main():
+    lista = read_int_list()
+    # TODO cand modificam lista in timp ce o parcurge,
+    #  in Python nu putem folosi for
+    # similar cu C++: for(int i = 0; i < n; i++)
+    i = 0
+    while i < len(lista):
+        if lista.count(lista[i]) > 1:
+            lista.remove(lista[i])
+        else:
+            i += 1
+    print(lista)
+
+
+# if __name__ == '__main__':
+#     main()
+
+def main():
+    lista = read_int_list()
+
+    for i in range(len(lista) - 1):
+        # sa pastram valoarea primului element, dupa care il eliminam din lista
+        element = lista[0]
+        lista.remove(element)
+
+        # sa readaugam elementul in lista, dar la final
+        lista.append(element)
+        print(*lista)
+
+
+# if __name__ == '__main__':
+#     main()
+
+# 21 cum sortam liste
+
+from functools import cmp_to_key
+
+
+def comparator(a, b):
+    # daca a < b returnezi -1
+    # daca a > b returnezi 1
+    # daca a == b returnezi 0
+    if a % 2 != 0 or b % 2 != 0:
+        return 0
+    if a < b:
+        return -1
+    if a > b:
+        return 1
+    return 0
+
+
+def main():
+    lista = read_int_list()
+
+    lista.sort(key=cmp_to_key(comparator))
+
+    # # sortare cu 2 for-uri
+    # for i in range(len(lista)):
+    #     for j in range(i + 1, len(lista)):
+    #         if lista[j] < lista[i] and lista[i] % 2 ==0:
+    #             lista[i], lista[j] = lista[j], lista[i]
+    # # alegi o pozitie i de oriunde din lista, si o pozitie j din dreapta lui i
+    # #  daca lista[j] < lista[i]  e clar ca sunt in ordinea gresita
+    print(*lista)
+
+
+if __name__ == '__main__':
+    main()
+
+# TODO 19 20 (hint: ar fi bine sa creezi o lista cu cifrele, ca sa te poti folosi de metode)
+#  21, 22
+#  sa refaci folosind metode celelalte exercitii
